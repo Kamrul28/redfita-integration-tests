@@ -13,12 +13,12 @@ public class EarRingPageTest extends TestHelper {
 
     @Test
     public void verfiyAddedEarringMatchedInCart(){
-        EarringsPage eariningPgage = PageFactory.initElements(driver, EarringsPage.class);
+        EarringsPage earringsPgage = PageFactory.initElements(driver, EarringsPage.class);
 
         driver.get("http://www.redfita.com/earrings.html");
-        eariningPgage.enterquantityfield("3");
-        eariningPgage.clickAddToCartButton();
-        eariningPgage.accpectAlert();
-        eariningPgage.clickGoToCart();
+        earringsPgage.enterQuantityField("3");
+        earringsPgage.clickAddToCartButton();
+        earringsPgage.acceptAlert();
+        earringsPgage.clickGoToCart();
     }
 }

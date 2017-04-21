@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import ui.common.PageHelper;
-import ui.common.TestHelper;
 
 /**
  * Created by KAMRUBY on 4/4/2017.
@@ -17,7 +16,7 @@ public class EarringsPage extends PageHelper{
     @FindBy(xpath = ".//*[@id='Menu']/li[1]/a")
     private  WebElement bodyJewelry;
     @FindBy(xpath = ".//*[@id='Menu']/li[1]/ul/li[1]/a")
-    private WebElement earringlink;
+    private WebElement earringLink;
 
     @FindBy(name = "qty3")
     private  WebElement earringQuantityField;
@@ -26,20 +25,21 @@ public class EarringsPage extends PageHelper{
     @FindBy(xpath = "//*[@id='items']/table/tbody/tr/td/table/tbody/tr[2]/td/input[3]")
     private WebElement goToCart;
     @FindBy (xpath = "html/body/div[1]/table/tbody/tr/td/table/tbody/tr[2]/td[4]")
-    private  WebElement cartQuantitText;
+    private  WebElement cartQuantityText;
 
     public EarringsPage(WebDriver driver){
         super(driver);
+        this.driver = driver;
     }
 
     public void navigateToEarringPage(){
         Actions action = new Actions(driver);
         action.moveToElement(bodyJewelry).perform();
-        action.moveToElement(earringlink).click().perform();
+        action.moveToElement(earringLink).click().perform();
 
     }
-    public void enterquantityfield(String enterQuantity){
-        driverWaitUntill(earringQuantityField,90);
+    public void enterQuantityField(String enterQuantity){
+        driverWaitUntil(earringQuantityField,90);
         earringQuantityField.sendKeys(enterQuantity);     // ----------------review
     }
 
@@ -51,11 +51,11 @@ public class EarringsPage extends PageHelper{
         goToCart.click();
     }
 
-    public void accpectAlert(){
+    public void acceptAlert(){
         driver.switchTo().alert().accept();}
 
 public String getCartQuantityTest(){
-    return cartQuantitText.getText();
+    return cartQuantityText.getText();
 }
 
 

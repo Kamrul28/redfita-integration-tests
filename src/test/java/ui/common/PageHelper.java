@@ -21,12 +21,12 @@ public class PageHelper {
     }
 
     //Explicit wait
-    public void driverWaitUntill(WebElement elementPath ,int timeToWait){
+    public void driverWaitUntil(WebElement elementPath , int timeToWait){
         WebDriverWait wait = new WebDriverWait(driver, timeToWait);
         wait.until(ExpectedConditions.visibilityOf(elementPath));
     }
 
-    public void accepctAlert(){
+    public void acceptAlert(){
         driver.switchTo().alert().accept();
 
     }
