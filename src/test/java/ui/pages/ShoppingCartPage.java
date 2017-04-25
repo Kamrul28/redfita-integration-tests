@@ -8,41 +8,43 @@ import ui.common.PageHelper;
 /**
  * Created by kamru on 4/24/2017.
  */
-public class OrderItemRemovePage extends PageHelper {
+public class ShoppingCartPage extends PageHelper {
     WebDriver driver;
 
-    public OrderItemRemovePage(WebDriver webDriver) {
+    public ShoppingCartPage(WebDriver webDriver) {
         super(webDriver);
+        this.driver = webDriver;
 
     }
-    @FindBy (name = ".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[4]/td/input[1]")
-    public WebElement clickQntField;
-    @FindBy (name = ".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[4]/td/input[1]")
+
+    @FindBy (xpath = "//*[@id='items']/table/tbody/tr/td/table/tbody/tr[3]/td/input[1]")
     public WebElement quantityField;
     @FindBy (xpath = ".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[3]/td/input[2]")
     public WebElement addToCartButton;
     @FindBy (xpath = ".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[5]/td/input[3]")
-    public WebElement navigateToCardButton;
+    public WebElement goToCartButton;
     @FindBy (xpath = "html/body/div[1]/table/tbody/tr/td/table/tbody/tr[2]/td[6]/a")
     public WebElement removeItemLink;
     @FindBy(xpath = "html/body/div[1]/table/tbody/tr/td/table/tbody/tr[2]/td")
     public WebElement yourCartIsEmptyMessage;
 
-    public void clickQntField(){
-        clickQntField.click();
-    }
     public void setQuantityField(){
+        quantityField.clear();
         quantityField.sendKeys("2");
     }
-    public void navigateAddToCart(){
+    public void clickOnAddToCartButton(){
         addToCartButton.click();
     }
     public void accpectAlert(){
-        driver.switchTo().alert().accept();
+        try {
+            driver.switchTo().alert().accept();
+        } catch (Exception e) {
+            e.getMessage();
+        }
     }
 
-    public void clickToCartButton(){
-        navigateToCardButton.click();
+    public void clickOnGoToCartButton(){
+        goToCartButton.click();
     }
     public void clickToRemoveItem(){
         removeItemLink.click();

@@ -13,9 +13,10 @@ import ui.pages.SubscribePage;
 @Suite.SuiteClasses({
         JewelryPageTest.class,
         EarRingPageTest.class,
-        SubscribePageTest.class
+        SubscribePageTest.class,
+        ShoppingCartTest.class
 
-        //TODO Add Shopping Cart test
+
 })
 public class TestSuite {
 

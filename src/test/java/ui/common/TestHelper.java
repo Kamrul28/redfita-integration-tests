@@ -15,7 +15,7 @@ public class TestHelper {
 
     @Before
     public void setupWEBdriver(){
-        System.setProperty("webdriver.chrome.driver","C:\\app\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\apps\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://www.redfita.com");
         driver.manage().window().maximize();
