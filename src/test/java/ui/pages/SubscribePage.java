@@ -10,38 +10,38 @@ import ui.common.PageHelper;
 /**
  * Created by KAMRUBY on 4/2/2017.
  */
-public class SubscribePage extends PageHelper{
+public class SubscribePage extends PageHelper {
     private WebDriver driver;
 
-    @FindBy (linkText ="subscribe")
+    @FindBy(linkText = "subscribe")
     private WebElement subcribeLink;
-    @FindBy(xpath =".//*[@id='subscribe-form']/fieldset/input[1]")
+    @FindBy(xpath = ".//*[@id='subscribe-form']/fieldset/input[1]")
     private WebElement femaleRadioButton;
-    @FindBy (xpath = ".//*[@id='subscribe-form']/fieldset/input[2]")
+    @FindBy(xpath = ".//*[@id='subscribe-form']/fieldset/input[2]")
     private WebElement maleRadioButton;
-    @FindBy (xpath = ".//*[@id='subscribe-form']/fieldset/input[3]")
+    @FindBy(xpath = ".//*[@id='subscribe-form']/fieldset/input[3]")
     private WebElement unknownButton;
-    @FindBy (xpath = ".//*[@id='subscribe-form']/fieldset/input[4]")
+    @FindBy(xpath = ".//*[@id='subscribe-form']/fieldset/input[4]")
     private WebElement recieveInformationvViaEmailCheckBox;
-    @FindBy (id= "first-name")
+    @FindBy(id = "first-name")
     private WebElement firstNameField;
-    @FindBy (id = "last-name")
+    @FindBy(id = "last-name")
     private WebElement lastNameField;
-    @FindBy (id ="street-address1")
+    @FindBy(id = "street-address1")
     private WebElement addressFiledOne;
-    @FindBy (xpath = ".//*[@id='subscribe_form']/tbody/tr[5]/td[2]/input")
+    @FindBy(xpath = ".//*[@id='subscribe_form']/tbody/tr[5]/td[2]/input")
     private WebElement getAddressFiledTwo;
-    @FindBy (id = "city")
+    @FindBy(id = "city")
     private WebElement cityField;
-    @FindBy (id = "zip")
+    @FindBy(id = "zip")
     private WebElement zipCodeField;
-    @FindBy (id = "state")
+    @FindBy(id = "state")
     private WebElement stateList;
-    @FindBy (id = "country")
+    @FindBy(id = "country")
     private WebElement countryList;
-    @FindBy (xpath = ".//*[@id='submit-btn']")
+    @FindBy(xpath = ".//*[@id='submit-btn']")
     private WebElement submitButton;
-    @FindBy (id = "reset-btn")
+    @FindBy(id = "reset-btn")
     private WebElement resetButton;
 
 
@@ -49,73 +49,74 @@ public class SubscribePage extends PageHelper{
         super(webDriver);
     }
 
-    public void clickOnSubcribeLink(){
+    public void clickOnSubcribeLink() {
         subcribeLink.click();
     }
 
-    public void clickonfemaleRadioButton(){
+    public void clickonfemaleRadioButton() {
         femaleRadioButton.click();
     }
 
-    public void clickOnmaleRadioButton(){
+    public void clickOnmaleRadioButton() {
         maleRadioButton.click();
     }
 
-    public void clickOnunknownButton(){
+    public void clickOnunknownButton() {
         unknownButton.click();
     }
 
-    public void checkRecieveInformationvViaEmailCheckBox(){
+    public void checkRecieveInformationvViaEmailCheckBox() {
         if (!recieveInformationvViaEmailCheckBox.isSelected()) {
             recieveInformationvViaEmailCheckBox.click();
         }
     }
 
-    public void typeFirstNameField(String fName){
+    public void typeFirstNameField(String fName) {
         firstNameField.sendKeys(fName);
     }
 
-    public void typeOnlastNameField(String lName){
+    public void typeOnlastNameField(String lName) {
         lastNameField.sendKeys(lName);
     }
 
-    public void typeOnaddressFiledOne(String addOne){
+    public void typeOnaddressFiledOne(String addOne) {
         addressFiledOne.sendKeys(addOne);
     }
 
-    public void typeOngetAddressFiledTwo(String addTwo){
+    public void typeOngetAddressFiledTwo(String addTwo) {
         getAddressFiledTwo.sendKeys(addTwo);
     }
 
-    public void typeOncityField(String city){
+    public void typeOncityField(String city) {
         cityField.sendKeys(city);
     }
 
-    public void typeOnZipCodeField(String zipCode){
+    public void typeOnZipCodeField(String zipCode) {
         zipCodeField.sendKeys(zipCode);
     }
 
-    public void selectStateList(String stateName){
+    public void selectStateList(String stateName) {
         Select dropdown = new Select(stateList);
         dropdown.selectByVisibleText(stateName);
 
     }
 
-    public void selectCountryList(String countryName){
+    public void selectCountryList(String countryName) {
         Select dropdown = new Select(countryList);
         dropdown.selectByVisibleText(countryName);
     }
 
-    public void clickOnsubmitButton(){
-        driverWaitUntill(submitButton,120);
+    public void clickOnsubmitButton() {
+        driverWaitUntil(submitButton, 120);
         submitButton.click();
     }
 
-    public void clickOnresetButton(){
+    public void clickOnresetButton() {
         resetButton.click();
     }
-    public String getNamefieldvalue(){
-      return  driver.findElement(By.id("first-name")).getAttribute("value");
+
+    public String getNamefieldvalue() {
+        return driver.findElement(By.id("first-name")).getAttribute("value");
     }
 
     public void submitSubscribeForm(String firstName, String lastName, String stateName, String countryName) {
@@ -131,10 +132,8 @@ public class SubscribePage extends PageHelper{
         selectStateList(stateName);
         selectCountryList(countryName);
         clickOnsubmitButton();
-        accepctAlert();
+        acceptAlert();
     }
-
-
 
 
 }

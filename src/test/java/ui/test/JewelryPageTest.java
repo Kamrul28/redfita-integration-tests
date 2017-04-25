@@ -15,22 +15,18 @@ import ui.pages.JewelryPage;
  */
 public class JewelryPageTest extends TestHelper {
 
-
-
-
     @Test
     public void verifyAddedAlertText(){
-        String itemQuantiy = "2";
+        String itemQuantity = "2";
         String itemName = "Fast and Furious";
         JewelryPage iJewelryPage = PageFactory.initElements(driver, JewelryPage.class);
-        iJewelryPage.addToCart(itemQuantiy);
+        iJewelryPage.addToCart(itemQuantity);
         String actualAlertText = iJewelryPage.getAlertText();
-        Assert.assertEquals(itemQuantiy + " - " + itemName + " added to your cart. Thank you for shopping @ RedFita.", actualAlertText);
+        Assert.assertEquals(itemQuantity + " - " + itemName + " added to your cart. Thank you for shopping @ RedFita.", actualAlertText);
     }
 
     @Test
     public void verifyShoppingCart(){
-
         JewelryPage iJewelryPage = PageFactory.initElements(driver,JewelryPage.class);
         iJewelryPage.addToCart("3");
         String getQuantity = iJewelryPage.quantityText();

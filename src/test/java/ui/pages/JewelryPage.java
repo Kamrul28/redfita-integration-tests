@@ -1,6 +1,5 @@
 package ui.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +12,7 @@ public class JewelryPage extends PageHelper{
     private WebDriver driver;
 
     @FindBy(xpath = ".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[2]/td/input[1]")
-    private WebElement fastAndFuriosQuantityFiled;
+    private WebElement fastAndFuriousQuantityFiled;
 
     @FindBy (xpath =".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[2]/td/input[2]")
     private WebElement  fastAndFuriousButton;
@@ -27,7 +26,7 @@ public class JewelryPage extends PageHelper{
         super(driver);
     }
     public void addToCart(String abc){
-        fastAndFuriosQuantityFiled.sendKeys(abc);
+        fastAndFuriousQuantityFiled.sendKeys(abc);
         fastAndFuriousButton.click();
     }
    public String quantityText(){

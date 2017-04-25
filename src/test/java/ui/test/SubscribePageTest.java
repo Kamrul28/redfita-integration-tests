@@ -2,6 +2,7 @@ package ui.test;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import ui.common.TestHelper;
 import ui.pages.SubscribePage;
@@ -9,32 +10,32 @@ import ui.pages.SubscribePage;
 /**
  * Created by KAMRUBY on 4/2/2017.
  */
-public class SubscribePageTest extends TestHelper{
-
+public class SubscribePageTest extends TestHelper {
+    
+    
 
     @Test
-    public void submitSubscription(){
-        SubscribePage iSubmitSucribe = PageFactory.initElements(driver,SubscribePage.class);
+    public void submitSubscription() {
+        SubscribePage iSubmitSubscribe = PageFactory.initElements(driver, SubscribePage.class);
+        
+        iSubmitSubscribe.clickOnSubcribeLink();
+        iSubmitSubscribe.clickonfemaleRadioButton();
+        iSubmitSubscribe.checkRecieveInformationvViaEmailCheckBox();
+        iSubmitSubscribe.typeFirstNameField("Kamrul");
+        iSubmitSubscribe.typeOnlastNameField("Chowdhury");
+        iSubmitSubscribe.typeOnaddressFiledOne("123 main Street");
+        iSubmitSubscribe.typeOncityField("");
+        iSubmitSubscribe.typeOnZipCodeField("11218");
+        iSubmitSubscribe.selectStateList("New York");
+        iSubmitSubscribe.selectCountryList("United State");
+        iSubmitSubscribe.clickOnsubmitButton();
 
-        iSubmitSucribe.clickOnSubcribeLink();
-        iSubmitSucribe.clickonfemaleRadioButton();
-        iSubmitSucribe.checkRecieveInformationvViaEmailCheckBox();
-        iSubmitSucribe.typeFirstNameField("Kamrul");
-        iSubmitSucribe.typeOnlastNameField("Chowdhury");
-        iSubmitSucribe.typeOnaddressFiledOne("123 main Street");
-        iSubmitSucribe.typeOncityField("");
-        iSubmitSucribe.typeOnZipCodeField("11218");
-        iSubmitSucribe.selectStateList("New York");
-        iSubmitSucribe.selectCountryList("United State");
-        iSubmitSucribe.clickOnsubmitButton();
-
-        Assert.assertEquals("Thank you for subscribing. We will sent you email with update. Please stay tuned.",iSubmitSucribe.getAlertText());
-
+        Assert.assertEquals("Thank you for subscribing. We will sent you email with update. Please stay tuned.", iSubmitSubscribe.getAlertText());
     }
 
     @Test
-    public void verifyResetFuncationality(){
-        SubscribePage iResetButton = PageFactory.initElements(driver,SubscribePage.class);
+    public void verifyResetFuncationality() {
+        SubscribePage iResetButton = PageFactory.initElements(driver, SubscribePage.class);
         iResetButton.clickOnSubcribeLink();
         iResetButton.clickOnmaleRadioButton();
         iResetButton.checkRecieveInformationvViaEmailCheckBox();
