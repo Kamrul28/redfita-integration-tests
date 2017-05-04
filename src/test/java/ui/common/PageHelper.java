@@ -27,14 +27,23 @@ public class PageHelper {
     }
 
     public void acceptAlert(){
-        driver.switchTo().alert().accept();
-
+        try {
+            Thread.sleep(1000); //TODO use global explicit wait
+            driver.switchTo().alert().accept();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getAlertText(){
+        try {
+            Thread.sleep(1000); //TODO use global explicit wait
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return driver.switchTo().alert().getText();
-
     }
+
 
 }
 

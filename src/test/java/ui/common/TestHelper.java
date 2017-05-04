@@ -19,7 +19,7 @@ public class TestHelper {
         driver = new ChromeDriver();
         driver.get("http://www.redfita.com");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); // Implcitilywait ..
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // Implcitilywait ..
     }
 
     @After

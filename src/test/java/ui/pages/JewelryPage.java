@@ -17,7 +17,7 @@ public class JewelryPage extends PageHelper{
     @FindBy (xpath =".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[2]/td/input[2]")
     private WebElement  fastAndFuriousButton;
     @FindBy (xpath =".//*[@id='items']/table/tbody/tr/td/table/tbody/tr[5]/td/input[3]")
-    private WebDriver goToCartButton;
+    private WebElement goToCartButton;
 
     @FindBy (xpath = "html/body/div[1]/table/tbody/tr/td/table/tbody/tr[2]/td[4]")
     private WebElement getCartQuantityText;
@@ -25,13 +25,15 @@ public class JewelryPage extends PageHelper{
     public JewelryPage(WebDriver driver){
         super(driver);
     }
-    public void addToCart(String abc){
-        fastAndFuriousQuantityFiled.sendKeys(abc);
+    public void addToCart(String quantity){
+        fastAndFuriousQuantityFiled.sendKeys(quantity);
         fastAndFuriousButton.click();
+        acceptAlert();
+        goToCartButton.click();
+
     }
    public String quantityText(){
       return getCartQuantityText.getText();
-
    }
 
 }

@@ -47,6 +47,7 @@ public class SubscribePage extends PageHelper {
 
     public SubscribePage(WebDriver webDriver) {
         super(webDriver);
+        this.driver = webDriver;
     }
 
     public void clickOnSubcribeLink() {
@@ -116,6 +117,11 @@ public class SubscribePage extends PageHelper {
     }
 
     public String getNamefieldvalue() {
+        try {
+            Thread.sleep(1000); //TODO use global explicit wait
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return driver.findElement(By.id("first-name")).getAttribute("value");
     }
 

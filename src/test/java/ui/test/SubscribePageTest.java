@@ -2,7 +2,6 @@ package ui.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import ui.common.TestHelper;
 import ui.pages.SubscribePage;
@@ -11,13 +10,12 @@ import ui.pages.SubscribePage;
  * Created by KAMRUBY on 4/2/2017.
  */
 public class SubscribePageTest extends TestHelper {
-    
-    
+
 
     @Test
     public void submitSubscription() {
         SubscribePage iSubmitSubscribe = PageFactory.initElements(driver, SubscribePage.class);
-        
+
         iSubmitSubscribe.clickOnSubcribeLink();
         iSubmitSubscribe.clickonfemaleRadioButton();
         iSubmitSubscribe.checkRecieveInformationvViaEmailCheckBox();
